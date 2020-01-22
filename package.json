@@ -1,0 +1,37 @@
+{
+  "name": "event-loop-delay",
+  "version": "0.0.1",
+  "description": "Call at constant intervals in event-loop, same like a configurable `wait` requestAnimationFrame.",
+  "main": "dist/event-loop-delay",
+  "types": "index.d.ts",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+
+  },
+  "devDependencies": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1uokun/event-loop-delay.git"
+  },
+  "keywords": [
+    "delay",
+    "event",
+    "event-loop",
+    "wait",
+    "requestAnimationFrame"
+  ],
+  "author": "1uokun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1uokun/event-loop-delay/issues"
+  },
+  "homepage": "https://github.com/1uokun/event-loop-delay"
+}
