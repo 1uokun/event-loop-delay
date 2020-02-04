@@ -1,27 +1,26 @@
-import LinkedList from './LinkedList'
 let listenersMap = new WeakMap();
 function Delay(wait=0) {
     if(this instanceof Delay){
 
-        listenersMap.set(this, new LinkedList());
+        listenersMap.set(this, []);
 
-        let node = listenersMap.get(this);
+        let queue = listenersMap.get(this);
 
         function *f() {
-            while(node.length){
-                yield node.removeAt(0);
+            while(queue.length){
+                yield queue.shift();
             }
         }
 
         return function delay(func){
-            if(node.length>0){
-                node.append({first:false,event:func});
+            if(queue.length>0){
+                queue.push({next:null});
+                queue[queue.length-2].next = func;
                 return false
             }
 
-            node.append({first:true,event:func});
+            queue.push({next:null});
             func();
-
 
             let timer = setInterval(()=>{
                 let a = f().next();
@@ -29,10 +28,9 @@ function Delay(wait=0) {
                     clearInterval(timer);
                     return false
                 }
-                if(typeof a.value.event === "function" && !a.value.first){
-                    a.value.event.call(this)
+                if(typeof a.value.next === "function"){
+                    a.value.next.call(this)
                 }
-
             },wait);
         }.bind(this)
     }

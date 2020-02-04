@@ -5,6 +5,7 @@
 # Android/IntelliJ
 #
 .idea
+yarn.lock
 
 
 /.nyc_output
