@@ -1,3 +1,8 @@
+/**
+ * @author 1uokun <https://github.com/1uokun>
+ * @copyright 2020 1uokun. All rights reserved.
+ * See LICENSE file in root directory for full license.
+ */
 let listenersMap = new WeakMap();
 function Delay(wait=0) {
     if(this instanceof Delay){
@@ -29,7 +34,7 @@ function Delay(wait=0) {
                     return false
                 }
                 if(typeof a.value.next === "function"){
-                    a.value.next.call(this)
+                    a.value.next.call(this);
                 }
             },wait);
         }.bind(this)
@@ -37,3 +42,4 @@ function Delay(wait=0) {
 }
 
 exports.Delay = Delay;
+//# sourceMappingURL=event-loop-delay.mjs.map
