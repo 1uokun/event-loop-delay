@@ -9,7 +9,22 @@
 
 Call at constant intervals in event-loop
 
-# Usage
+## 💿 Installation
+
+Use [npm](https://www.npmjs.com/) to install then use a bundler.
+
+```
+npm install @react-sextant/event-loop-delay
+```
+
+Or download from [`dist` directory](./dist).
+
+- [dist/event-loop-delay.mjs](dist/event-loop-delay.mjs) ... ES modules version.
+- [dist/event-loop-delay.js](dist/event-loop-delay.js) ... Common JS version.
+- [dist/event-loop-delay.umd.js](dist/event-loop-delay.umd.js) ... UMD (Universal Module Definition) version. This is transpiled by [Babel](https://babeljs.io/) for IE 11.
+
+
+# 📖 Usage
 
 ```javascript 1.5
 import Delay from 'event-loop-delay'
