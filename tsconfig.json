@@ -5,8 +5,7 @@
         "strict": true
     },
     "files": [
-        "index.d.ts",
-        "test/fixtures/types.ts"
+        "index.d.ts"
     ],
     "exclude": [
         "node_modules"
