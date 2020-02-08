@@ -1,5 +1,6 @@
 const assert = require('assert');
-const Delay = require('../src/Delay');
+const Delay = require('../src/Delay').Delay;
+const expect = require('chai').expect;
 
 
 (function testIntervalTime(){
@@ -26,3 +27,9 @@ const Delay = require('../src/Delay');
     delay(func);
     delay(func);
 })();
+
+describe('Delay', function(){
+    it('should be defined', function() {
+        expect(Delay).to.be.a('function');
+    });
+});

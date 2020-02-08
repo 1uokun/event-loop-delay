@@ -27,7 +27,7 @@ Or download from [`dist` directory](./dist).
 # 📖 Usage
 
 ```javascript 1.5
-import Delay from 'event-loop-delay'
+import {Delay} from '@react-sextant/event-loop-delay'
 
 let delay = new Delay(500); // Call at interval 500ms
 
