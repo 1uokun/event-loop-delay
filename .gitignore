@@ -5,11 +5,15 @@
 # Android/IntelliJ
 #
 .idea
-yarn.lock
 
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
 
 /.nyc_output
 /coverage
-/node_modules
-/npm-debug.log
 /test.*

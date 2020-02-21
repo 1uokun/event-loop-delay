@@ -4,6 +4,7 @@
  * See LICENSE file in root directory for full license.
  */
 let listenersMap = new WeakMap();
+
 function Delay(wait=0) {
     if(this instanceof Delay){
 
@@ -41,5 +42,6 @@ function Delay(wait=0) {
     }
 }
 
-exports.Delay = Delay;
+export default Delay;
+export { Delay };
 //# sourceMappingURL=event-loop-delay.mjs.map

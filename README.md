@@ -35,3 +35,7 @@ delay(function(){
   //...
 })
 ```
+
+# 🔧 Contribution
+
+before `npm run build` need `npm run regenerator` to make a `Delay-es5.js` for UMD version

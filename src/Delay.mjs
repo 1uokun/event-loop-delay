@@ -1,4 +1,6 @@
+
 let listenersMap = new WeakMap();
+
 function Delay(wait=0) {
     if(this instanceof Delay){
 
@@ -36,4 +38,5 @@ function Delay(wait=0) {
     }
 }
 
-exports.Delay = Delay;
+export { Delay }
+export default Delay;

@@ -6,8 +6,8 @@ const banner = `/**
  * @copyright 2020 1uokun. All rights reserved.
  * See LICENSE file in root directory for full license.
  */`
-const cjsOutro = `module.exports = Delay
-module.exports.Delay = module.exports["default"] = Delay
+const cjsOutro = `module.exports = Delay;
+module.exports.Delay = module.exports["default"] = Delay;
 `
 const umdOutro = `if (typeof module === "undefined" && typeof define === "undefined") {
     var global = Function("return this")()
@@ -17,7 +17,7 @@ const umdOutro = `if (typeof module === "undefined" && typeof define === "undefi
 
 export default [
     {
-        input: "src/Delay.js",
+        input: "src/Delay.mjs",
         output: {
             file: "dist/event-loop-delay.mjs",
             sourcemap: true,
@@ -26,7 +26,8 @@ export default [
         },
     },
     {
-        input: "src/Delay.js",
+
+        input: "src/Delay.mjs",
         output: {
             file: "dist/event-loop-delay.js",
             sourcemap: true,
@@ -36,7 +37,7 @@ export default [
         },
     },
     {
-        input: "src/Delay.js",
+        input: "src/Delay-es5.mjs",
         output: {
             file: "dist/event-loop-delay.umd.js",
             sourcemap: true,
@@ -47,12 +48,8 @@ export default [
         plugins: [
             babel({
                 babelrc: false,
-                presets: [
-                    [
-                        "@babel/preset-env",
-                        { modules: false, targets: { browsers: ["ie 11"] } },
-                    ],
-                ],
+                runtimeHelpers: true,
+                presets: ["@babel/preset-env"]
             }),
             minify({
                 comments: false,

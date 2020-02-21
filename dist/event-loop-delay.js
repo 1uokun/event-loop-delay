@@ -5,7 +5,10 @@
  */
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 let listenersMap = new WeakMap();
+
 function Delay(wait=0) {
     if(this instanceof Delay){
 
@@ -44,7 +47,8 @@ function Delay(wait=0) {
 }
 
 exports.Delay = Delay;
+exports.default = Delay;
 
-module.exports = Delay
-module.exports.Delay = module.exports["default"] = Delay
+module.exports = Delay;
+module.exports.Delay = module.exports["default"] = Delay;
 //# sourceMappingURL=event-loop-delay.js.map
