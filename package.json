@@ -1,6 +1,6 @@
 {
   "name": "@react-sextant/event-loop-delay",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Call at constant intervals in event-loop, same like a configurable `wait` requestAnimationFrame.",
   "main": "dist/event-loop-delay",
   "types": "index.d.ts",
@@ -14,7 +14,8 @@
   "scripts": {
     "test:mocha": "mocha ./scripts/babel-register test/*.js",
     "test:karma": "karma start scripts/karma.conf.js --single-run",
-    "build": "rollup -c scripts/rollup.config.js",
+    "lint": "eslint . --fix",
+    "build": "npm run regenerator && rollup -c scripts/rollup.config.js",
     "regenerator": "regenerator --include-runtime ./src/Delay.mjs > ./src/Delay-es5.mjs",
     "codecov": "codecov"
   },
@@ -25,6 +26,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/register": "^7.0.0",
     "assert": "^2.0.0",
+    "babel-eslint": "^10.1.0",
     "chai": "^4.2.0",
     "codecov": "^3.6.4",
     "eslint": "^6.8.0",
@@ -37,11 +39,6 @@
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "^4.0.0"
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ]
   },
   "repository": {
     "type": "git",

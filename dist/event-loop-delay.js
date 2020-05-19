@@ -16,11 +16,11 @@ function Delay(wait=0) {
 
         let queue = listenersMap.get(this);
 
-        function *f() {
+        const f = function*() {
             while(queue.length){
                 yield queue.shift();
             }
-        }
+        };
 
         return function delay(func){
             if(queue.length>0){

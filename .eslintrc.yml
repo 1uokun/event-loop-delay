@@ -1,9 +1,5 @@
 root: true
 
-extends:
-  - plugin:@mysticatea/es2015
-  - plugin:@mysticatea/+node
-
 globals:
   console: false
   window: false
@@ -14,8 +10,13 @@ rules:
   import/newline-after-import: "off"
   import/first: "off"
 
+parserOptions:
+  ecmaVersion: 2017
+  sourceType: "module"
+
 overrides:
   - files: src/*
+    parser: "babel-eslint"
     rules:
       # To reduce size for babel-translation.
       no-restricted-syntax:
@@ -23,7 +24,5 @@ overrides:
         - ClassDeclaration
         - ClassExpression
         - ForOfStatement
-        - BinaryExpression[left.operator='typeof'][right.value='object']
       prefer-rest-params: "off"
       prefer-spread: "off"
-      "@mysticatea/prefer-for-of": "off"
