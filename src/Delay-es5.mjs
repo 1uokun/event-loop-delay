@@ -730,7 +730,7 @@ try {
 
 var listenersMap = new WeakMap();
 
-function Delay(func, wait = 0) {
+function delay(func, wait = 0) {
   listenersMap.set(func, []);
   var queue = listenersMap.get(func);
   var f = /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
@@ -757,7 +757,7 @@ function Delay(func, wait = 0) {
       }
     }, _callee);
   });
-  return function delay() {
+  return function () {
     var _this = this;
 
     if (queue.length > 0) {
@@ -787,5 +787,5 @@ function Delay(func, wait = 0) {
   }.bind(this);
 }
 
-export { Delay };
-export default Delay;
+export { delay };
+export default delay;

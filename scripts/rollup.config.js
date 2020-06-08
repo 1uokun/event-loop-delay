@@ -6,12 +6,12 @@ const banner = `/**
  * @copyright 2020 1uokun. All rights reserved.
  * See LICENSE file in root directory for full license.
  */`
-const cjsOutro = `module.exports = Delay;
-module.exports.Delay = module.exports["default"] = Delay;
+const cjsOutro = `module.exports = delay;
+module.exports.delay = module.exports["default"] = delay;
 `
 const umdOutro = `if (typeof module === "undefined" && typeof define === "undefined") {
     var global = Function("return this")()
-    global.EventLoopDelay = Delay
+    global.EventLoopDelay = delay
 }
 `
 

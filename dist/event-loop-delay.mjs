@@ -3,20 +3,20 @@
  * @copyright 2020 1uokun. All rights reserved.
  * See LICENSE file in root directory for full license.
  */
-let listenersMap = new WeakMap();
+const listenersMap = new WeakMap();
 
-function Delay(func,wait=0) {
+function delay(func,wait=0) {
         listenersMap.set(func, []);
 
-        let queue = listenersMap.get(func);
+        const queue = listenersMap.get(func);
 
-        const f = function*() {
+        const f = function *() {
             while(queue.length){
                 yield queue.shift();
             }
         };
 
-        return function delay(){
+        return function(){
             if(queue.length>0){
                 queue.push({next:null});
                 queue[queue.length-2].next = func;
@@ -39,6 +39,6 @@ function Delay(func,wait=0) {
         }.bind(this)
 }
 
-export default Delay;
-export { Delay };
+export default delay;
+export { delay };
 //# sourceMappingURL=event-loop-delay.mjs.map
