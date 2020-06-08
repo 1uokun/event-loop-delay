@@ -9,12 +9,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 let listenersMap = new WeakMap();
 
-function Delay(wait=0) {
-    if(this instanceof Delay){
+function Delay(func,wait=0) {
+        listenersMap.set(func, []);
 
-        listenersMap.set(this, []);
-
-        let queue = listenersMap.get(this);
+        let queue = listenersMap.get(func);
 
         const f = function*() {
             while(queue.length){
@@ -22,7 +20,7 @@ function Delay(wait=0) {
             }
         };
 
-        return function delay(func){
+        return function delay(){
             if(queue.length>0){
                 queue.push({next:null});
                 queue[queue.length-2].next = func;
@@ -43,7 +41,6 @@ function Delay(wait=0) {
                 }
             },wait);
         }.bind(this)
-    }
 }
 
 exports.Delay = Delay;

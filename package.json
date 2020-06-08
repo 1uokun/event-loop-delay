@@ -1,6 +1,6 @@
 {
   "name": "@react-sextant/event-loop-delay",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Call at constant intervals in event-loop, same like a configurable `wait` requestAnimationFrame.",
   "main": "dist/event-loop-delay",
   "types": "index.d.ts",

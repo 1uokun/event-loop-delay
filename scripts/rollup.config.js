@@ -40,7 +40,7 @@ export default [
         input: "src/Delay-es5.mjs",
         output: {
             file: "dist/event-loop-delay.umd.js",
-            sourcemap: true,
+            sourcemap: false,
             format: "umd",
             name: "EventLoopDelay",
             outro: umdOutro,

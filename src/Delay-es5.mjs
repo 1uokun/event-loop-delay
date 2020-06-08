@@ -730,63 +730,61 @@ try {
 
 var listenersMap = new WeakMap();
 
-function Delay(wait = 0) {
-  if (this instanceof Delay) {
-    listenersMap.set(this, []);
-    var queue = listenersMap.get(this);
-    var f = /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              if (!queue.length) {
-                _context.next = 5;
-                break;
-              }
-
-              _context.next = 3;
-              return queue.shift();
-
-            case 3:
-              _context.next = 0;
+function Delay(func, wait = 0) {
+  listenersMap.set(func, []);
+  var queue = listenersMap.get(func);
+  var f = /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            if (!queue.length) {
+              _context.next = 5;
               break;
+            }
 
-            case 5:
-            case "end":
-              return _context.stop();
-          }
+            _context.next = 3;
+            return queue.shift();
+
+          case 3:
+            _context.next = 0;
+            break;
+
+          case 5:
+          case "end":
+            return _context.stop();
         }
-      }, _callee);
-    });
-    return function delay(func) {
-      var _this = this;
-
-      if (queue.length > 0) {
-        queue.push({
-          next: null
-        });
-        queue[queue.length - 2].next = func;
-        return false;
       }
+    }, _callee);
+  });
+  return function delay() {
+    var _this = this;
 
+    if (queue.length > 0) {
       queue.push({
         next: null
       });
-      func();
-      var timer = setInterval(function () {
-        var a = f().next();
+      queue[queue.length - 2].next = func;
+      return false;
+    }
 
-        if (a.done) {
-          clearInterval(timer);
-          return false;
-        }
+    queue.push({
+      next: null
+    });
+    func();
+    var timer = setInterval(function () {
+      var a = f().next();
 
-        if (typeof a.value.next === "function") {
-          a.value.next.call(_this);
-        }
-      }, wait);
-    }.bind(this);
-  }
+      if (a.done) {
+        clearInterval(timer);
+        return false;
+      }
+
+      if (typeof a.value.next === "function") {
+        a.value.next.call(_this);
+      }
+    }, wait);
+  }.bind(this);
 }
 
 export { Delay };

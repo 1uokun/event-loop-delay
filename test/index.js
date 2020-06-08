@@ -1,11 +1,11 @@
 const assert = require('assert');
-const Delay = require('../src/Delay').Delay;
+const delay = require('../src/Delay').Delay;
 const expect = require('chai').expect;
 
 
 (function testIntervalTime(){
     const WAIT = 1000;
-    let delay = new Delay(WAIT);
+    // let delay = new Delay(WAIT);
 
     /* 第一个应该被立即执行 */
     let a = new Date().getTime();
@@ -24,12 +24,20 @@ const expect = require('chai').expect;
         }
     }
 
-    delay(func);
-    delay(func);
+    let _func = delay(func, WAIT);
+    _func();
+    _func();
 })();
 
 describe('Delay', function(){
-    it('should be defined', function() {
-        expect(Delay).to.be.a('function');
+
+    let func = function(){};
+
+    it('should be a function', function() {
+        expect(delay).to.be.a('function');
+    });
+
+    it('returns should be a function', function() {
+        expect(delay(func)).to.be.a('function');
     });
 });
