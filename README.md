@@ -35,6 +35,10 @@ delay(function(){
   //...
 })
 ```
+umd.js
+```javascript 1.5
+global.EventLoopDelay
+```
 
 # 🔧 Contribution
 
